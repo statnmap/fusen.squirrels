@@ -21,10 +21,9 @@ Add this chunk using `fusen::description_chunk()`
 ```{r description}
 # Describe your package
 fusen::fill_description(
-  pkg = here::here(),
   fields = list(
-    Title = "Build A Package From Rmarkdown file",
-    Description = "Use Rmd First method to build your package. Start your package with documentation. Everything can be set from a Rmd file in your project.",
+    Title = "Exploratory of NYC Squirrel Census",
+    Description = "Example of the use of {fusen} with Rmd First method to build a package.",
     `Authors@R` = c(
       person("Sebastien", "Rochette", email = "sebastien@thinkr.fr", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-1565-9313")),
       person(given = "ThinkR", role = "cph")
