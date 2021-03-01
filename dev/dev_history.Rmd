@@ -9,6 +9,7 @@ editor_options:
 
 ```{r development, include=FALSE}
 library(testthat)
+library(dplyr)
 ```
 
 <!--
@@ -54,83 +55,38 @@ pkgload::load_all(path = here::here(), export_all = FALSE)
 # nyc_squirrels <- read.csv(datafile)
 ```
 
-
-# Calculate the median of a vector
-
-```{r function}
-#' My median
-#'
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
-#'
-#' @return
-#' Median of vector x
-#' @export
-#'
-#' @examples
-my_median <- function(x, na.rm = TRUE) {
-  if (!is.numeric(x)) {stop("x should be numeric")}
-  stats::median(x, na.rm = na.rm)
-}
-```
-
-```{r examples}
-my_median(1:12)
-```
-
-```{r tests}
-test_that("my_median works properly and show error if needed", {
-  expect_true(my_median(1:12) == 6.5)
-  expect_error(my_median("text"))
-})
-```
-
-# Calculate the mean of a vector
-## Use sub-functions in the same chunk
+# Check the validity of the entry dataset
 
 ```{r function-1}
-#' My Other median
-#'
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
-#'
-#' @return
-#' Median of vector x
-#' @export
-#'
-#' @examples
-my_other_median <- function(x, na.rm = TRUE) {
-  if (!is.numeric(x)) {stop("x should be numeric")}
-  sub_median(x, na.rm =na.rm)
+datafile <- system.file("nyc_squirrels_sample.csv", package = "fusen.squirrels")
+x <- read.csv(datafile)
+
+# Verify it is a data.frame
+if (!is.data.frame(x)) {stop("x is not a dataframe")}
+
+# Verify points are in New York around Central Park
+all_coords_ok <- all(
+  c(min(nyc_squirrels[["lat"]]) > 40.76400,
+    max(nyc_squirrels[["lat"]]) < 40.80100,
+    min(nyc_squirrels[["long"]]) > -73.98300,
+    max(nyc_squirrels[["long"]]) < -73.94735)
+)
+if (!all_coords_ok) {stop("Not all data are in Central Park")}
+
+# Verify there is only one color in primary_fur_color.
+# A `+` is a sign of multiple colours
+if (any(grepl("+", nyc_squirrels[["primary_fur_color"]], fixed = TRUE))) {
+  stop("There are multiple colors in some 'primary_fur_color'")
 }
-
-#' Core of the median not exported
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
-sub_median <- function(x, na.rm = TRUE) {
-  stats::median(x, na.rm)
-}
 ```
 
-```{r examples-1}
-my_other_median(1:12)
+```{r example-1}
+
+
 ```
 
-```{r tests-1}
-test_that("my_median works properly and show error if needed", {
-  expect_true(my_other_median(1:12) == 6.5)
-  expect_error(my_other_median("text"))
-})
-```
+```{r test-1}
 
-# There can be development actions
-
-These will be included in the `dev_history.R` file of your package, but won't be direct part of it.
-
-```{r development-1, eval=FALSE}
-# Run but keep eval=FALSE to avoid infinite loop
-# Execute in the console directly
-fusen::inflate(rmd = "dev/dev_history.Rmd")
 ```
 
 
