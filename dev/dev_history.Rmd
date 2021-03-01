@@ -58,6 +58,14 @@ pkgload::load_all(path = here::here(), export_all = FALSE)
 # Check the validity of the entry dataset
 
 ```{r function-1}
+#' Check data integrity
+#'
+#' @param x dataframe with at least colums lat, long and primary_fur_color
+#'
+#' @return Original dataframe if all tests are good. Otherwise stops.
+#' @export
+#'
+#' @examples
 check_data_integrity <- function(x) {
   # Verify it is a data.frame
   if (!is.data.frame(x)) {stop("x is not a dataframe")}
