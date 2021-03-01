@@ -58,9 +58,6 @@ pkgload::load_all(path = here::here(), export_all = FALSE)
 # Check the validity of the entry dataset
 
 ```{r function-1}
-datafile <- system.file("nyc_squirrels_sample.csv", package = "fusen.squirrels")
-nyc_squirrels <- read.csv(datafile)
-
 check_data_integrity <- function(x) {
   # Verify it is a data.frame
   if (!is.data.frame(x)) {stop("x is not a dataframe")}
@@ -79,13 +76,17 @@ check_data_integrity <- function(x) {
   if (any(grepl("+", x[["primary_fur_color"]], fixed = TRUE))) {
     stop("There are multiple colors in some 'primary_fur_color'")
   }
+  
+  message("All tests are good !")
+  return(x)
 }
 
 ```
 
 ```{r example-1}
-
-
+datafile <- system.file("nyc_squirrels_sample.csv", package = "fusen.squirrels")
+nyc_squirrels <- read.csv(datafile)
+nyc_squirrels_ok <- check_data_integrity(nyc_squirrels)
 ```
 
 ```{r test-1}
