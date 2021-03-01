@@ -2,3 +2,5 @@
 ^dev$
 ^\.here$
 ^LICENSE\.md$
+^fusen\.squirrels\.Rproj$
+^\.Rproj\.user$

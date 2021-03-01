@@ -1,15 +1,23 @@
 Package: fusen.squirrels
-Version: 0.0.0.9000
 Title: Exploratory of NYC Squirrel Census
-Description: Example of the use of {fusen} with Rmd First method to build a package.
-Authors@R: c(person(given = "Sebastien",
-         family = "Rochette",
-         role = c("aut", "cre"),
-         email = "sebastien@thinkr.fr",
-         comment = c(ORCID = "0000-0002-1565-9313")),
-  person(given = "ThinkR",
-         role = "cph"))
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Sebastien",
+             family = "Rochette",
+             role = c("aut", "cre"),
+             email = "sebastien@thinkr.fr",
+             comment = c(ORCID = "0000-0002-1565-9313")),
+      person(given = "ThinkR",
+             role = "cph"))
+Description: Example of the use of {fusen} with Rmd First method
+    to build a package.
 License: MIT + file LICENSE
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

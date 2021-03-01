@@ -129,6 +129,10 @@ test_that("check_data_integrity works correctly", {
 You're one inflate from paper to box.
 Build your package from this very Rmarkdown using `fusen::inflate()`
 
+```{r eval=FALSE}
+fusen::inflate(rmd = here::here("dev/dev_history.Rmd"))
+```
+
 - Verify your `"DESCRIPTION"` file has been updated
 - Verify your function is in `"R/"` directory
 - Verify your test is in `"tests/testthat/"` directory
