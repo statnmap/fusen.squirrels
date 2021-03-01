@@ -46,7 +46,7 @@ and `system.file()` to read it in your examples
 # Create "inst/" directory
 dir.create(here::here("inst"))
 # Example dataset
-# file.copy(system.file("nyc_squirrels_sample.csv", package = "fusen"), here::here("inst"))
+file.copy(system.file("nyc_squirrels_sample.csv", package = "fusen"), here::here("inst"))
 # Make your dataset file available to the current Rmd
 pkgload::load_all(path = here::here(), export_all = FALSE)
 # You will be able to read your example data file in each of your function examples and tests as follows
