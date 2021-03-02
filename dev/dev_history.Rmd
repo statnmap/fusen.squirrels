@@ -157,6 +157,9 @@ usethis::use_build_ignore("docs/") # Hide from package build
 usethis::use_git_ignore("docs/") # Do not send on Git
 # Check everything is good
 rcmdcheck::rcmdcheck()
+# Add checks on GitHub Actions and pkgdown
+usethis::use_github_action_check_standard() # Check using CI
+usethis::use_github_action("pkgdown") # Allow for pkgdown
 ```
 
 

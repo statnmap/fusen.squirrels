@@ -4,6 +4,8 @@
 # fusen.squirrels
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/statnmap/fusen.squirrels/workflows/R-CMD-check/badge.svg)](https://github.com/statnmap/fusen.squirrels/actions)
 <!-- badges: end -->
 
 The goal of {fusen.squirrels} is to present an example of the use of
