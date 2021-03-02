@@ -123,15 +123,6 @@ test_that("check_data_integrity works correctly", {
 })
 ```
 
-# Present and admire the content of your package
-## Presentation with a README
-
-```{r development-3, eval=FALSE}
-devtools::install()
-usethis::use_readme_rmd()
-```
-
-
 # Inflate your package
 
 You're one inflate from paper to box.
@@ -145,3 +136,27 @@ fusen::inflate(rmd = here::here("dev/dev_history.Rmd"))
 - Verify your function is in `"R/"` directory
 - Verify your test is in `"tests/testthat/"` directory
 - Verify this Rmd appears in `"vignettes/"` directory
+
+# Present and admire the content of your package
+## Presentation with a README
+
+```{r development-3, eval=FALSE}
+devtools::install()
+usethis::use_readme_rmd()
+```
+
+## Presentation with the associated website
+
+```{r development-4, eval=FALSE}
+# page for coverage
+remotes::install_github('yonicd/covrpage')
+covrpage::covrpage(vignette = TRUE)
+# pkgdown website
+pkgdown::build_site()
+usethis::use_build_ignore("docs/") # Hide from package build
+usethis::use_git_ignore("docs/") # Do not send on Git
+# Check everything is good
+rcmdcheck::rcmdcheck()
+```
+
+

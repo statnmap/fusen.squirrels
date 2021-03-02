@@ -43,15 +43,17 @@ nyc_squirrels <- read.csv(datafile)
 nyc_squirrels_ok <- check_data_integrity(nyc_squirrels)
 ```
 
+# Present and admire the content of your package
+
+## Presentation with a README
+
+## Presentation with the associated website
+
 # Inflate your package
 
 You're one inflate from paper to box.
 Build your package from this very Rmarkdown using `fusen::inflate()`
 
-
-```{r eval = FALSE}
-fusen::inflate(rmd = here::here("dev/dev_history.Rmd"))
-```
 
 - Verify your `"DESCRIPTION"` file has been updated
 - Verify your function is in `"R/"` directory
