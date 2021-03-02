@@ -123,13 +123,21 @@ test_that("check_data_integrity works correctly", {
 })
 ```
 
+# Present and admire the content of your package
+## Presentation with a README
+
+```{r development-3, eval=FALSE}
+devtools::install()
+usethis::use_readme_rmd()
+```
+
 
 # Inflate your package
 
 You're one inflate from paper to box.
 Build your package from this very Rmarkdown using `fusen::inflate()`
 
-```{r eval=FALSE}
+```{r development-4, eval=FALSE}
 fusen::inflate(rmd = here::here("dev/dev_history.Rmd"))
 ```
 
